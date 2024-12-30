@@ -9,16 +9,13 @@ public class Main {
     classRoom.add(new Student("나영희", 90, 80, 60));
     classRoom.add(new Student("다람쥐", 80, 60, 60));
 
-    classRoom.sort(new Comparator<>() {
-      @Override
-      public int compare(Student s1, Student s2) {
-        if (s1.getKorScore() != s2.getKorScore()) {
-          return s2.getKorScore() - s1.getKorScore();
-        } else if (s1.getEngScore() != s2.getEngScore()) {
-          return s2.getEngScore() - s1.getEngScore();
-        } else {
-          return s2.getMathScore() - s1.getMathScore();
-        }
+    classRoom.sort((s1, s2) -> {
+      if (s1.getKorScore() != s2.getKorScore()) {
+        return s2.getKorScore() - s1.getKorScore();
+      } else if (s1.getEngScore() != s2.getEngScore()) {
+        return s2.getEngScore() - s1.getEngScore();
+      } else {
+        return s2.getMathScore() - s1.getMathScore();
       }
     });
 
